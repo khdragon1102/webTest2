@@ -1,4 +1,4 @@
-package Config;
+package com.playdata.todos.Config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
