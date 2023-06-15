@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
         if(new UserDao().login(username, password)){
             //로그인 성공
-            resp.sendRedirect("views/main.html");
+            resp.sendRedirect("/main");
         }
         else{
             resp.setContentType("text/html; charset=UTF-8");

@@ -34,4 +34,15 @@ public class User {
     public String getCreateAt() {
         return createAt;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userID='" + userID + '\'' +
+                ", password='" + password + '\'' +
+                ", userName='" + userName + '\'' +
+                ", createAt='" + createAt + '\'' +
+                '}';
+    }
 }

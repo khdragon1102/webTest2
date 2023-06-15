@@ -36,4 +36,14 @@
     <servlet-name>SignupServlet</servlet-name>
     <url-pattern>/signup</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>MainServlet</servlet-name>
+    <servlet-class>com.playdata.todos.servlet.MainServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>MainServlet</servlet-name>
+    <url-pattern>/main</url-pattern>
+  </servlet-mapping>
 </web-app>

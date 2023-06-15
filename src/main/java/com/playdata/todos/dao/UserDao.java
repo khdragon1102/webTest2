@@ -14,6 +14,7 @@ import com.mysql.cj.protocol.Resultset;
 import com.mysql.cj.protocol.ServerSessionStateController;
 import com.mysql.cj.xdevapi.Result;
 import com.playdata.todos.Config.JdbcConnection;
+import com.playdata.todos.Config.LogoutThread;
 import com.playdata.todos.dto.User;
 
 import java.sql.*;
@@ -24,6 +25,8 @@ import java.util.Properties;
 import java.util.concurrent.Executor;
 
 public class UserDao {
+    public static User me = null;
+
     public boolean insert(User user){
         Connection conn = new JdbcConnection().getJdbc();
         String sql = "insert into users(username, password, name)" +
@@ -73,7 +76,13 @@ public class UserDao {
             throw new RuntimeException(e);
         }
 
-        return users.size() != 0;
+        if (users.size() > 0) {
+            me = users.get(0);
+            System.out.println(me);
+            new LogoutThread().start();
+            return true;
+        } else
+         return false;
     }
 
     private User makeUser(ResultSet resultset){
